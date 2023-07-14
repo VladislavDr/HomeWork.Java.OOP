@@ -9,9 +9,17 @@
         <module name="HomeWork1" />
         <module name="HomeWork2" />
         <module name="HomeWork3" />
-        <module name="java-oop20230627" />
         <module name="HomeWork4" />
       </profile>
+      <profile name="Annotation profile for HomeWork5" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="HomeWork5" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Home Work 5" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
