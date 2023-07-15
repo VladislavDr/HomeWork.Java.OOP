@@ -47,6 +47,21 @@ public class StudentRepository implements UserRepository<Student> {
                 student.getGroupTitle().equals(groupTitle)).collect(Collectors.toList());
     }
 
+    @Override
+    public List<Student> getNameStudy(String name) {
+        List<Student> fullNameStudy = new ArrayList<>();
+
+       return students.stream().filter(student -> student.getFullName().equals(name)).collect(Collectors.toList());
+//        Iterator<Student> iterator = students.iterator();
+//        while (iterator.hasNext()) {
+//            Student student = iterator.next();
+//            if (student.getFullName().equals(name)) {
+//                fullNameStudy.add(student);
+//            }
+//        }
+//        return fullNameStudy;
+    }
+
     private Long getMaxId() {
         Long maxId = 0L;
         for (Student student : students) {

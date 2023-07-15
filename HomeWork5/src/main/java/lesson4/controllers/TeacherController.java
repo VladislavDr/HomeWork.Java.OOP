@@ -38,4 +38,9 @@ public class TeacherController implements UserController<Teacher> {
         return userService.getAllSortById();
 
     }
+
+    @Override
+    public List<Teacher> getNameStudy(String name) {
+        return null;
+    }
 }

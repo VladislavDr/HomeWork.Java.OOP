@@ -49,6 +49,11 @@ public class TeacherRepository implements UserRepository<Teacher> {
                 teachers.getGroupTitle().equals(groupTitle)).collect(Collectors.toList());
     }
 
+    @Override
+    public List<Teacher> getNameStudy(String name) {
+        return null;
+    }
+
     private Long getMaxId() {
         Long maxId = 0L;
         for (Teacher teacher : teachers) {

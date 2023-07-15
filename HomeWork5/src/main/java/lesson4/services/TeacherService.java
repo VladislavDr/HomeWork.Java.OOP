@@ -56,4 +56,9 @@ public class TeacherService implements UserService<Teacher> {
     public List<Teacher> getAllByTitile(String groupTitle) {
         return userRepository.getAllByGroupTitle(groupTitle);
     }
+
+    @Override
+    public List<Student> studyGetName(String name) {
+        return null;
+    }
 }

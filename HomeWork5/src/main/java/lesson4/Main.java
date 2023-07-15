@@ -13,6 +13,8 @@ import lesson4.view.SortType;
 import lesson4.view.StudentView;
 import lesson4.view.TeacherView;
 
+import java.util.Scanner;
+
 public class Main {
 
     private static StudentRepository studentRepository;
@@ -39,23 +41,80 @@ public class Main {
         viewTeach.create("Vladimir Vladimirovich Putin", 65, "000000", "11А");
         viewTeach.create("Zhirinovsky Vladimir Volfovich", 73, "11111", "11А");
 
-        groupView.printAllFromGroup("11А");
 //        groupView.printAllFromGroup("11А");
-//        view.sendOnConsole();
+////      view.sendOnConsole();
 //        view.sendOnConsole(SortType.NAME);
 //        view.sendOnConsole(SortType.ID);
-        view.sendOnConsole();
+//        view.sendOnConsole();
+//
+////        view.removeUser("Ivan Morozov");
+////        viewTeach.removeUser("Vladimir Vladimirovich Putin");
+//
+////        viewTeach.sendOnConsole(SortType.ID);//
+//          view.sendOnConsole();
+//          viewTeach.sendOnConsole();
 
 
-//        view.removeUser("Ivan Morozov");
-//        viewTeach.removeUser("Vladimir Vladimirovich Putin");
 
-//        viewTeach.sendOnConsole(SortType.ID);
-
-
-        view.sendOnConsole();
-        viewTeach.sendOnConsole();
-
+    while  (true) {
+        System.out.println("Введите, get-student, если хотите увидеть всех студентов."+
+                " Введите get-teacher, если хотите отобразить весь список преподавателей. \n" +
+                " Введите get-student-name, если хотите найти конкретных студентов. " +
+                "Введите get-group, если хотите найти студентов по группам. " +
+                "Введите  create-student и следуйте инструкциям, чтобы создать нового ученика. \n"+
+                "Введите delete-student, чтобы удалить студента из списков" +
+                "Введите create-teacher и следуйте инструкциям, чтобы создать нового преподавателя. \n" +
+                "Введите delete-teacher, чтобы удалить преподавателя. Введите exit, чтобы выйти из программмы");
+        switch (Scan()) {
+            case "get-student":
+                view.sendOnConsole(SortType.ID);
+                break;
+            case "get-teacher":
+                viewTeach.sendOnConsole(SortType.ID);
+            case "get-student-name":
+                System.out.println("Введите полное имя студента");
+                System.out.println(view.studyGetName(Scan()));
+                break;
+            case "get-group":
+                System.out.println("Введите группу, которую нужно вывести на экран");
+                groupView.printAllFromGroup(Scan());
+                break;
+            case "create-student":
+                System.out.println("Введите полное имя студента: ");
+                String nameStudy = Scan();
+                System.out.println("Введите возраст студента: ");
+                int ageStudy = Integer.parseInt(Scan());
+                System.out.println("Введите номер телефона студента");
+                String phoneNumbStudy = Scan();
+                System.out.println("Введите группу студента");
+                String groupNumStudy = Scan();
+                view.create(nameStudy, ageStudy, phoneNumbStudy, groupNumStudy);
+                break;
+            case "delete-student":
+                System.out.println("Введите полное имя студента, которого надо удалить из списка");
+                String fullNameStudy = Scan();
+                view.removeUser(fullNameStudy);
+                break;
+            case "create-teacher":
+                System.out.println("Введите полное имя преподавателя: ");
+                String nameTeach = Scan();
+                System.out.println("Введите возраст преподавателя: ");
+                int ageTeach = Integer.parseInt(Scan());
+                System.out.println("Введите номер телефона преподавателя");
+                String phoneNumbTeach = Scan();
+                System.out.println("Введите группу преподавателя");
+                String groupNumTeach = Scan();
+                viewTeach.create(nameTeach, ageTeach, phoneNumbTeach, groupNumTeach);
+                break;
+            case "delete-teacher":
+                System.out.println("Введите полное имя студента, которого надо удалить из списка");
+                String fullNameTeach = Scan();
+                view.removeUser(fullNameTeach);
+                break;
+            case "exit":
+                System.exit(0);
+            }
+        }
     }
 
     private static StudentView getStudentController() {
@@ -70,6 +129,10 @@ public class Main {
         GroupController groupController = new GroupController(groupService);
         return new GroupView(groupController);
     }
-
+    private static String Scan(){
+        Scanner scanner = new Scanner(System.in);
+        String command = scanner.nextLine();
+        return command;
+    }
 
 }

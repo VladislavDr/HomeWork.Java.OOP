@@ -39,6 +39,11 @@ public class StudentController implements UserController<Student> {
     @Override
     public List<Student> getAllSortById() {
         return userService.getAllSortById();
-
     }
+
+    @Override
+    public List<Student> getNameStudy(String name) {
+        return userService.studyGetName(name);
+    }
+
 }

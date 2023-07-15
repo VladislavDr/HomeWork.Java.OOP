@@ -60,4 +60,8 @@ public class StudentService implements UserService<Student> {
     public List<Student> getAllByTitile(String groupTitle) {
         return userRepository.getAllByGroupTitle(groupTitle);
     }
+
+    public List<Student> studyGetName(String name){
+        return userRepository.getNameStudy(name);
+    }
 }

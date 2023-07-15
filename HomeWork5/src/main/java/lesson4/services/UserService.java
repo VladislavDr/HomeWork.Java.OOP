@@ -1,5 +1,6 @@
 package lesson4.services;
 
+import lesson4.models.Student;
 import lesson4.models.User;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface UserService<T extends User>{
     int remove(String fullName);
 
     List<T> getAllByTitile(String groupTitle);
+    List<Student> studyGetName(String name);
 }
