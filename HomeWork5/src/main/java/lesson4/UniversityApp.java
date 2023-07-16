@@ -45,14 +45,14 @@ public class UniversityApp {
 
 
         while  (true) {
-            System.out.println("Введите, get-student, если хотите увидеть всех студентов."+
-                    " Введите get-teacher, если хотите отобразить весь список преподавателей. \n" +
-                    " Введите get-student-name, если хотите найти конкретных студентов. " +
+            System.out.println("Введите, get-student, если хотите увидеть всех студентов. "+
+                    "Введите get-teacher, если хотите отобразить весь список преподавателей. \n" +
+                    "Введите get-student-name, если хотите найти конкретных студентов. " +
                     "Введите get-group, если хотите найти студентов по группам. \n" +
                     "Введите  create-student и следуйте инструкциям, чтобы создать нового ученика. \n"+
-                    "Введите delete-student, чтобы удалить студента из списков" +
+                    "Введите delete-student, чтобы удалить студента из списков. " +
                     "Введите create-teacher и следуйте инструкциям, чтобы создать нового преподавателя. \n" +
-                    "Введите delete-teacher, чтобы удалить преподавателя. Введите exit, чтобы выйти из программмы");
+                    "Введите delete-teacher, чтобы удалить преподавателя. Введите exit, чтобы выйти из программмы.");
             switch (Scan()) {
                 case "get-student":
                     view.sendOnConsole(SortType.ID);
@@ -119,7 +119,7 @@ public class UniversityApp {
     }
     private static String Scan(){
         Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
+        String command = scanner.nextLine().replace("_", " ");
         return command;
     }
 }
